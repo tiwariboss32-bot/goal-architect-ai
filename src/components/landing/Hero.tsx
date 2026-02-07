@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { toast } from "sonner";
+import { insertIntoSupabase } from "@/common/common";
 
 const Hero = () => {
   const [email, setEmail] = useState("");
@@ -18,6 +19,8 @@ const Hero = () => {
     // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 1000));
     toast.success("You're on the list! We'll be in touch soon.");
+    const response = await insertIntoSupabase(email);
+    console.log("res",response);
     setEmail("");
     setIsLoading(false);
   };

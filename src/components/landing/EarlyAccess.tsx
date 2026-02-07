@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight, Star, Zap, Users, Gift } from "lucide-react";
 import { toast } from "sonner";
+import { insertIntoSupabase } from "@/common/common";
 
 const benefits = [
   { icon: Star, text: "Priority access to beta" },
@@ -24,6 +25,8 @@ const EarlyAccess = () => {
     setIsLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 1000));
     toast.success("Welcome aboard! You're now on the early access list.");
+    const response = await insertIntoSupabase(email);
+    console.log("res",response);
     setEmail("");
     setIsLoading(false);
   };

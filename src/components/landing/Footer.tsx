@@ -21,7 +21,7 @@ const Footer = () => {
 
           {/* Copyright */}
           <p className="text-sm text-muted-foreground">
-            © 2025 GoalBuilder AI
+            © 2026 GoalBuilder AI
           </p>
         </div>
       </div>
